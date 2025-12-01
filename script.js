@@ -190,7 +190,7 @@ function renderProducts() {
         <h3>${product.name}</h3>
         <p>${product.description || ""}</p>
         <p><strong>${product.price}</strong></p>
-        <input type="number" min="0" value="0" id="qty-${
+        <input type="number" min="0" id="qty-${
           product.id
         }" class="qty-input" placeholder="Qty" />
       </div>
