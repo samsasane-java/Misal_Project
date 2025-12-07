@@ -5,17 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mejwani Misal Menu</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Header -->
     <header class="site-header">
-      <div class="logo">Mejwani Misal</div>
+      <!-- Left: Logo + Title together -->
+      <div class="logo-title">
+        <img
+          src="images/Mejwani_Logo.jpeg"
+          alt="Mejwani Misal Logo"
+          class="site-logo"
+        />
+        <h1 class="site-title">Mejwani Misal</h1>
+      </div>
+
+      <!-- Right: Navigation -->
       <nav class="nav-links">
         <a href="#menu">Menu</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <!-- Mobile Hamburger -->
       <button class="hamburger" onclick="toggleMenu()">☰</button>
     </header>
+
+    <div class="notice-bar">
+      <span>
+        Thank you for choosing Mejwani Misal. Kindly note, orders can be placed
+        at our premises only. We look forward to serving you!
+      </span>
+    </div>
+
+    <!-- Seating Table Selector -->
+    <div class="table-selector">
+      <h3>Select Your Table</h3>
+      <div class="table-buttons">
+        <button class="table-btn" data-table="1">Table 1</button>
+        <button class="table-btn" data-table="2">Table 2</button>
+        <button class="table-btn" data-table="3">Table 3</button>
+        <button class="table-btn" data-table="4">Table 4</button>
+        <button class="table-btn" data-table="5">Table 5</button>
+      </div>
+    </div>
 
     <!-- Product Section -->
     <main id="menu" class="product-grid">
@@ -24,10 +59,63 @@
 
     <!-- Sticky Order Button -->
     <div class="order-bar">
+      <span id="selected-table" class="table-display">Table: Not Selected</span>
       <button class="order-button" onclick="sendOrder()">
         🛒 Order Selected via WhatsApp
       </button>
     </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2>Connect With Us</h2>
+      <p>We’d love to hear from you! Reach out anytime.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+919960150897">+91 9923040840</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-instagram"></i>
+          <a
+            href="https://www.instagram.com/mejwanimisal_nanded?igsh=MTBzaGd2ZzUwM2N2ZQ=="
+            target="_blank"
+            >Instagram</a
+          >
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-facebook"></i>
+          <a
+            href="https://www.facebook.com/profile.php?id=100069438726829"
+            target="_blank"
+            >Facebook</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section">
+      <h2>Our Location</h2>
+      <p>Visit us at Mejwani Misal, Nanded</p>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.0381659756526!2d77.2849797!3d19.1935353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd1d509517944fb%3A0xc3a9df36573a9db!2zTWVqd2FuaSBNaXNhbCAsIOCkruClh-CknOCkteCkvuCkqOClgCDgpK7gpL_gpLjgpLM!5e0!3m2!1sen!2sin!4v1765087879818!5m2!1sen!2sin"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          width="100%"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="site-footer">

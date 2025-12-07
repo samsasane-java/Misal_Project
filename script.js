@@ -2,7 +2,7 @@ function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("show");
 }
 
-const ownerNumber = "918796161143"; // Replace with actual WhatsApp number
+const ownerNumber = "919923040840"; // Replace with actual WhatsApp number
 
 const products = [
   {
@@ -43,7 +43,7 @@ const products = [
   {
     id: 6,
     name: "Butter Pav Bhaji (4 Pav)",
-    description: "Classic Mumbai-style Pav Bhaji",
+    description: "Classic Pav Bhaji",
     price: 70,
     image: "images/Pav_Bhaji.jpg",
   },
@@ -57,21 +57,21 @@ const products = [
   {
     id: 8,
     name: "Boondi",
-    description: "Crispy chickpea pearls",
+    description: "Boondi",
     price: 20,
     image: "images/Sweet-boondi.jpg",
   },
   {
     id: 9,
     name: "Lassi",
-    description: "Sweet yogurt drink",
+    description: "Sweet Lassi",
     price: 30,
     image: "images/Lassi.png",
   },
   {
     id: 10,
     name: "Thick Cold Coffee",
-    description: "Rich cold coffee",
+    description: "Thick Cold Coffee",
     price: 70,
     image: "images/Cold-Coffee-with-Ice-Cream.jpg",
   },
@@ -85,16 +85,16 @@ const products = [
   {
     id: 12,
     name: "Plain Pav (2 pcs)",
-    description: "Soft bread rolls",
+    description: "Plain Pav",
     price: 10,
     image: "images/Plain-Pav.jpg",
   },
   {
     id: 13,
     name: "Butter Pav (2 pcs)",
-    description: "Bread rolls with butter",
+    description: "Pav with butter",
     price: 20,
-    image: "images/Only Butter Pav.jpg",
+    image: "images/OnlyButterPav.jpg",
   },
   {
     id: 14,
@@ -113,7 +113,7 @@ const products = [
   {
     id: 16,
     name: "Extra Boondi",
-    description: "Extra crispy pearls",
+    description: "Boondi",
     price: 10,
     image: "images/Sweet-boondi.jpg",
   },
@@ -133,7 +133,7 @@ const products = [
   },
   {
     id: 19,
-    name: "Sai Curd",
+    name: "Sweet Curd",
     description: "Premium curd",
     price: 10,
     image: "images/curd.jpg",
@@ -154,10 +154,10 @@ const products = [
   },
   {
     id: 22,
-    name: "Water Bottle 700ml",
+    name: "Water Bottle 500ml",
     description: "Packaged drinking water",
     price: 10,
-    image: "images/K_missal.png",
+    image: "images/Bislary.jpg",
   },
   {
     id: 23,
@@ -176,6 +176,7 @@ const products = [
 //   container.appendChild(card);
 // });
 
+// <p><strong>${product.price}</strong></p> - add after description
 function renderProducts() {
   const container = document.getElementById("menu");
   container.innerHTML = "";
@@ -189,7 +190,6 @@ function renderProducts() {
       <div class="overlay">
         <h3>${product.name}</h3>
         <p>${product.description || ""}</p>
-        <p><strong>${product.price}</strong></p>
         <input type="number" min="0" id="qty-${
           product.id
         }" class="qty-input" placeholder="Qty" />
@@ -218,17 +218,45 @@ function renderProducts() {
 
 document.addEventListener("DOMContentLoaded", renderProducts);
 
+// Handle table button selection
+document.querySelectorAll(".table-btn").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    // Remove active from all
+    document
+      .querySelectorAll(".table-btn")
+      .forEach((b) => b.classList.remove("active"));
+    // Add active to clicked
+    this.classList.add("active");
+
+    const tableNumber = this.dataset.table;
+    document.getElementById(
+      "selected-table"
+    ).textContent = `Table: ${tableNumber}`;
+    document.getElementById("table-number").value = tableNumber; // hidden input if needed
+  });
+});
+
 function sendOrder() {
-  let message = "Hello, I would like to order:\n";
+  const tableDisplay = document.getElementById("selected-table").textContent;
+  if (tableDisplay.includes("Not Selected")) {
+    alert("Please select your table number before ordering.");
+    return;
+  }
+
+  const tableNumber = tableDisplay.replace("Table: ", "");
+  let message = `Hello, I would like to order (Table ${tableNumber}):\n`;
   let total = 0;
   products.forEach((product) => {
     const qty = parseInt(document.getElementById(`qty-${product.id}`).value);
     if (qty > 0) {
       console.log("qty :" + qty + "product.price :" + product.price);
-      const itemTotal = qty * product.price;
-      console.log("itemTotal :" + itemTotal);
+      // const itemTotal = qty * product.price;
+      // console.log("itemTotal :" + itemTotal);
       // message += `• ${qty} x ${product.name} @ ₹${product.price} = ₹${itemTotal}\n`;
-      message += `• ${qty} x ${product.name} @ ₹${product.price} = ₹${itemTotal}\n`;
+      // message += `• ${qty} x ${product.name} @ ₹${product.price} = ₹${itemTotal}\n`;
+      // total += itemTotal;
+      const itemTotal = qty;
+      message += `• ${qty} x ${product.name}\n`;
       total += itemTotal;
     }
   });
@@ -238,7 +266,7 @@ function sendOrder() {
     return;
   }
 
-  message += `\nTotal Amount: ₹${total}`;
+  // message += `\nTotal Amount: ₹${total}`;
   const encodedMessage = encodeURIComponent(message);
   window.open(`https://wa.me/${ownerNumber}?text=${encodedMessage}`, "_blank");
 }
