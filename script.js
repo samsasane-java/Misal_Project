@@ -73,7 +73,7 @@ const products = [
     name: "Thick Cold Coffee",
     description: "Thick Cold Coffee",
     price: 70,
-    image: "images/Cold-Coffee-with-Ice-Cream.jpg",
+    image: "images/thick-cold-coffee.jpg",
   },
   {
     id: 11,
@@ -108,15 +108,15 @@ const products = [
     name: "Extra Matki",
     description: "Sprouted lentils",
     price: 10,
-    image: "images/Extra_Mataki.jpg",
+    image: "images/Matki.jpg",
   },
-  {
-    id: 16,
-    name: "Extra Boondi",
-    description: "Boondi",
-    price: 10,
-    image: "images/Sweet-boondi.jpg",
-  },
+  // {
+  //   id: 16,
+  //   name: "Extra Boondi",
+  //   description: "Boondi",
+  //   price: 10,
+  //   image: "images/Sweet-boondi.jpg",
+  // },
   {
     id: 17,
     name: "Extra Butter",
@@ -150,7 +150,7 @@ const products = [
     name: "Papad",
     description: "Crispy lentil wafer",
     price: 10,
-    image: "images/Masala_Papad.png",
+    image: "images/Papad.jpg",
   },
   {
     id: 22,
