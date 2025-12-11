@@ -2,7 +2,7 @@ function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("show");
 }
 
-const ownerNumber = "919923040840"; // Replace with actual WhatsApp number
+const ownerNumber = "919049390062"; // Replace with actual WhatsApp number
 
 const products = [
   {
@@ -24,7 +24,7 @@ const products = [
     name: "Kolhapuri Misal + Butter Pav",
     description: "Spicy Misal with 2 Butter Pav",
     price: 80,
-    image: "images/K_missal.png",
+    image: "images/km_ButterPav.jpg",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const products = [
     name: "Dahi Vada (2 pcs)",
     description: "Soft lentil dumplings in curd",
     price: 50,
-    image: "images/K_missal.png",
+    image: "images/Dahi-Vada.jpg",
   },
   {
     id: 6,
