@@ -59,7 +59,7 @@ const products = [
     name: "Boondi",
     description: "Boondi",
     price: 20,
-    image: "images/Sweet-boondi.jpg",
+    image: "images/Boondhi-Namkin.jpg",
   },
   {
     id: 9,
